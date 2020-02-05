@@ -4,14 +4,14 @@ import {widthPercentageToDP as w} from 'react-native-responsive-screen'
 import { fetchClubs } from '../config/databank'
 import { colors } from '../config/constants'
 import { useNavigation } from 'react-navigation-hooks'
-export function Clubs() {
+export function Clubs(props) {
 
     const [clubList, setClubList] = useState([])
     const {navigate} = useNavigation()
     let a = 1
  
     async function getClubList(){
-        let clubList = await fetchClubs()
+        let clubList = await fetchClubs(props.compId)
         setClubList(clubList)
     }
 
@@ -38,6 +38,24 @@ export function Clubs() {
     )
 }
 
+export function EPL(){
+    return(
+        <Clubs compId="2021" />
+    )
+}
+
+export function LaLiga(){
+    return(
+        <Clubs compId="2014" />
+    )
+}
+
+export function Bundesliga(){
+    return(
+        <Clubs compId="2002" />
+    )
+}
+
 const styles = StyleSheet.create({
     flatItem: {
         width: w(100),
@@ -53,6 +71,5 @@ const styles = StyleSheet.create({
     },
     view:{
         flex: 1,
-        paddingTop: w(10)
     }
 })
