@@ -5,3 +5,5 @@ export const headers={
 }
 
 export const colors = ['#111e6c', '#1d2951', '#003152', '#000080']
+
+export const dbName = 'proclubs'
