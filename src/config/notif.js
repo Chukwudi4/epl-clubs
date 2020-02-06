@@ -1,19 +1,20 @@
 import {Notifications} from 'expo'
 import * as Perm from 'expo-permissions'
 import { reminderChannelId } from './constants'
+import { Alert } from 'react-native'
 
 async function getPerm(){
     let {status} = await Perm.getAsync(Perm.NOTIFICATIONS)
 
     if(status!="granted"){
         var askSync = await Perm.askAsync(Perm.NOTIFICATIONS)    
-        
+        return askSync.status =="granted"
     }
 
-    return askSync.status == "granted"
+    return status == "granted"
 }
 
-function reminderChannel(){
+async function reminderChannel(){
     await Notifications.createChannelAndroidAsync(
         reminderChannelId,
         {
@@ -26,7 +27,8 @@ function reminderChannel(){
 }
 
 export async function sendNotif(time, match){
-    let perm = await getPerm()
+    try {
+        let perm = await getPerm()
     if(perm){
         reminderChannel()
         let notifId = await Notifications.scheduleLocalNotificationAsync(
@@ -42,9 +44,14 @@ export async function sendNotif(time, match){
                 time: time
             }
         )
-
+        Alert.alert(`You will be remind about\n ${match}`)
         return notifId
     }
+    } catch (error) {
+        alert(error.message)
+        return 0        
+    }
+    
 
     return 0
 }

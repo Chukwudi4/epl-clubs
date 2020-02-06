@@ -8,6 +8,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { FixturePane } from '../components/fixturePane';
 import moment from 'moment';
 import { Icon } from 'react-native-elements';
+import { sendNotif } from '../config/notif';
 
 let a = 5
 export function ClubDetail() {
@@ -53,6 +54,7 @@ function FixtureBox(props) {
     let {item, theme} = props
     let date = new Date(item.utcDate)
     let mom = moment(date)
+    let match = `${item.homeTeam.name} vs ${item.awayTeam.name}`
     return(
         <View style={styles.itemView} >
 <Text style={[styles.time, {color: theme}]} >{mom.format("dddd, Do MMMM, h:mm a")}</Text>
@@ -62,7 +64,7 @@ function FixtureBox(props) {
                 <Text style={[styles.fixtureText, {color: theme}]} >{item.awayTeam.name}</Text>
             </View>    
             
-            <Icon containerStyle={styles.reminder} onPress={()=> alert(`${item.homeTeam.name}`)} type="font-awesome" name= "bell-o" color={theme} />
+            <Icon containerStyle={styles.reminder} onPress={()=> sendNotif(date, match)} type="font-awesome" name= "bell-o" color={theme} />
         </View>
     )
 }
