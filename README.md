@@ -9,7 +9,7 @@ Let you set a reminder for each match
 
 ![Athletico Madrid fixtures](/assets/fixtures.png)
 
-<h3>To Run
+<h3>To Run</h3>
 
 git clone
 
