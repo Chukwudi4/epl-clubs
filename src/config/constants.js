@@ -6,4 +6,6 @@ export const headers={
 
 export const colors = ['#111e6c', '#1d2951', '#003152', '#000080']
 
-export const dbName = 'proclubs'
+export const dbName = 'proclubs.db'
+
+export const reminderChannelId = "rem1nder"
