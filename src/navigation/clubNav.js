@@ -14,7 +14,7 @@ function OurTabs() {
         <ClubTab.Navigator
             tabBarOptions={{
                 tabStyle:{
-                    paddingTop: Consts.statusBarHeight
+                    marginTop: Consts.statusBarHeight
                 }
             }}
             screenOptions={({ route }) =>({
