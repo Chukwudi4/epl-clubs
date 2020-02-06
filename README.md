@@ -5,9 +5,9 @@ European leagues and their fixtures and
 Let you set a reminder for each match
 
 
-![EPL Teams](https://drive.google.com/open?id=1jAQygn5YfNxckKFwjAP5JAk-jHUaAC6k)
+![EPL Teams](/assets/clubs.png)
 
-![Athletico Madrid fixtures](https://drive.google.com/open?id=1xhU-wM0GGl7NRqNx3MLedZJJiXZ3F2O4)
+![Athletico Madrid fixtures](/assets/fixtures.png)
 
 <h3>To Run
 
