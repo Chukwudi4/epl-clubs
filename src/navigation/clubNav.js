@@ -1,6 +1,6 @@
 import React from 'react'
 import {createStackNavigator} from 'react-navigation-stack'
-import {Constants} from 'expo'
+import Consts from 'expo-constants'
 import { Bundesliga, EPL, LaLiga } from '../screens/clubs'
 import { ClubDetail } from '../screens/clubDetail'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
@@ -14,7 +14,7 @@ function OurTabs() {
         <ClubTab.Navigator
             tabBarOptions={{
                 tabStyle:{
-                    paddingTop: 56
+                    paddingTop: Consts.statusBarHeight
                 }
             }}
             screenOptions={({ route }) =>({

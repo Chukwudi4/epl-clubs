@@ -12,6 +12,7 @@
     "@react-navigation/material-top-tabs": "^5.0.0",
     "@react-navigation/native": "^5.0.0-alpha.35",
     "expo": "~36.0.0",
+    "expo-constants": "~8.0.0",
     "expo-linear-gradient": "~8.0.0",
     "expo-permissions": "~8.0.0",
     "expo-sqlite": "~8.0.0",
