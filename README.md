@@ -5,9 +5,9 @@ European leagues and their fixtures and
 Let you set a reminder for each match
 
 
-![EPL Teams](/assets/clubs.png){:height="50%" width="50%"}
+<img src="/assets/clubs.png" width="400" height="790">
 
-![Athletico Madrid fixtures](/assets/fixtures.png){:height="50%" width="50%"}
+<img src="/assets/fixtures.png" width="400" height="790">
 
 <h3>To Run</h3>
 
