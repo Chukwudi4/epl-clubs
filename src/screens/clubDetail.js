@@ -20,7 +20,7 @@ export function ClubDetail() {
 
     async function getFixtures() {
         let newFixtures = await fetchFixtures(details.id)
-        console.warn(details)
+        //console.warn(details)
         setFixtures(newFixtures)
     }
 
@@ -36,7 +36,7 @@ export function ClubDetail() {
                     style={styles.imgBackground} 
                     source={{uri:'https://cnet3.cbsistatic.com/img/BVKdjSoub2ddhRxqDC5KNu8_4FM=/1600x610/filters:blur(6)/2019/09/16/003d15f2-1f6b-4f88-9861-e9c83779c18f/apple-iphone-11-8.jpg'}} >    
                 </ImageBackground> */}
-                <Text style={[styles.fixtureText, styles.header]} >Fixtures</Text>
+                <Text style={[styles.fixtureText, styles.header, {width: null}]} >{details.shortName} Fixtures</Text>
                 <FlatList
                     data={fixtures}
                     keyExtractor={item=> `${item.id}`}
@@ -58,6 +58,7 @@ function FixtureBox(props) {
     return(
         <View style={styles.itemView} >
 <Text style={[styles.time, {color: theme}]} >{mom.format("dddd, Do MMMM, h:mm a")}</Text>
+    <Text style={[styles.time, {color: theme}, styles.competitionName]} >{item.competition.name}</Text>
             <View style={styles.fixturePane} >
                 <Text style={[styles.fixtureText, {color: theme}]} >{item.homeTeam.name}</Text>
                 <Text>vs</Text>
@@ -103,7 +104,8 @@ const styles = StyleSheet.create({
     },
     fixturePane:{
         flexDirection:'row',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        alignItems: 'baseline'
     },
     header:{
         fontSize: w(5.8)
@@ -119,7 +121,15 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         alignSelf: 'flex-start',
         position: 'absolute',
-        top: w(2),
+        bottom: w(2),
         left: w(2)
+    },
+    competitionName: {
+        right: w(1),
+        //width: w(30),
+        left: null,
+        bottom: null,
+        top: w(2),
+        marginRight: w(2)
     }
 })
