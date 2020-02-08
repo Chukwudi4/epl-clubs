@@ -5,9 +5,9 @@ European leagues and their fixtures and
 Let you set a reminder for each match
 
 
-<img src="/assets/clubs.png" width="400" height="790">
+<img src="/assets/clubs.png" width="300" height="690">
 
-<img src="/assets/fixtures.png" width="400" height="790">
+<img src="/assets/fixtures.png" width="300" height="690">
 
 <h3>To Run</h3>
 
