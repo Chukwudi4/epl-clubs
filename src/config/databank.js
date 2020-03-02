@@ -14,10 +14,12 @@ export async function fetchClubs(compId){
 export async function fetchFixtures(teamId){
     
     try {
-        let year = new Date().getFullYear()
-        let month = new Date().getMonth()
-        let daysInMonth = new Date(year, month, 0).getDate()
-        let fixture = await fetch(`${url}teams/${teamId}/matches?dateFrom=2020-02-01&dateTo=2020-02-${daysInMonth}`,{ headers: headers })    
+        let y = new Date().getFullYear()
+        let month = new Date().getUTCMonth() + 1
+        let m = month > 9 ? `${month}` : `0${month}`
+        console.warn(y)
+        let daysInMonth = new Date(y, month, 0).getDate()
+        let fixture = await fetch(`${url}teams/${teamId}/matches?dateFrom=${y}-${m}-01&dateTo=${y}-${m}-${daysInMonth}`,{ headers: headers })    
         let fixtureList = await fixture.json()
         //console.warn(fixtureList.matches)
         return fixtureList.matches
