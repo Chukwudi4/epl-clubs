@@ -29,6 +29,7 @@ async function reminderChannel(){
 export async function sendNotif(time, match){
     try {
         let perm = await getPerm()
+        let date = new Date(time).getTime()
     if(perm){
         reminderChannel()
         let notifId = await Notifications.scheduleLocalNotificationAsync(
@@ -41,10 +42,24 @@ export async function sendNotif(time, match){
                 }
             },
             {
-                time: time
+                time: date
             }
         )
-        Alert.alert(`You will be remind about\n ${match}`)
+
+        let notifNow = await Notifications.scheduleLocalNotificationAsync(
+            {
+                title: "You'll be reminded about this match",
+                body: `${match}`,
+                android:{
+                    channelId: reminderChannelId,
+                    color: '#1d2951'
+                }
+            },
+            {
+                time: new Date().getTime()
+            }
+        )
+
         return notifId
     }
     } catch (error) {
